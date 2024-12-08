@@ -77,13 +77,13 @@ npm run run # Headless mode
 
 ## 📝 Custom Extensions
 
-Custom Cypress Command: validateText() for text validation
-Dynamic Test Data: Faker.js for generating realistic test data
+- Custom Cypress Command: validateText() for text validation
+- Dynamic Test Data: Faker.js for generating realistic test data
 
 ## ⚠️ Notes
 
-Ensure all sensitive information is appropriately masked
-Always use mock/test data for automated tests
-Regularly update dependencies to maintain security
+- Ensure all sensitive information is appropriately masked
+- Always use mock/test data for automated tests
+- Regularly update dependencies to maintain security
 
 Happy Testing! 🚀
