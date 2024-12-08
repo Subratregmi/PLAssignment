@@ -57,8 +57,8 @@ describe("Receive SMS Assignment Test", () => {
       }
 
       // Deliberately use different passwords
-      cy.get("#passwordInput").type(mismatchedPasswordData.password)
-      cy.get("#confirmPasswordInput").type(`${mismatchedPasswordData.password}different`)
+      loginPage.elements.passwordInput().type(mismatchedPasswordData.password)
+      loginPage.elements.confirmPasswordInput().type(`${mismatchedPasswordData.password}different`)
       cy.get("#submitbtn").click()
 
       // Assert password mismatch error
@@ -89,7 +89,7 @@ describe("Receive SMS Assignment Test", () => {
   })
 
   // Negative Login Test Cases
-  describe("Login Negative Scenarios", () => {
+  context("Login Negative Scenarios", () => {
     it("should prevent login with incorrect username", () => {
       loginPage.login("nonexistentuser", commonFaker.password)
 
@@ -105,10 +105,9 @@ describe("Receive SMS Assignment Test", () => {
     })
 
     it("should prevent login with empty credentials", () => {
-      // Attempt to login with empty fields
-      cy.get("#userNameInput\\ user_login").clear()
-      cy.get("#passwordInput\\ user_pass").clear()
-      cy.get("#wp-submit").click()
+      loginPage.elements.userLoginField().clear()
+      loginPage.elements.userPasswordField().clear()
+      loginPage.elements.wpSubmitButton().click()
 
       // Assert error for empty credentials
       cy.validateText(".error", "Error: The username field is empty.\n    Error: The password field is empty.")

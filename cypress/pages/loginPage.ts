@@ -1,46 +1,45 @@
-// support/pages/LoginPage.ts
-
 export class LoginPage {
-  // Selectors
-  private userNameInput = "#userNameInput"
-  private firstNameInput = "#firstNameInput"
-  private lastNameInput = "#lastNameInput"
-  private emailAddressInput = "#emailAddressInput"
-  private confirmEmailAddressInput = "#confirmEmailAddressInput"
-  private passwordInput = "#passwordInput"
-  private confirmPasswordInput = "#confirmPasswordInput"
-  private submitButton = "#submitbtn"
-  private loginPageUrl = "/login"
-  private signInTextSelector = ".mt-5.txalg"
-  private userLoginField = "#userNameInput\\ user_login"
-  private userPasswordField = "#passwordInput\\ user_pass"
-  private wpSubmitButton = "#wp-submit"
-  private logoutButton = ":nth-child(2) > .nav-link"
-
-  // Methods
-  public fillUserInformation(userData: { username: string; firstName: string; lastName: string; email: string; password: string }) {
-    cy.get(this.userNameInput).type(userData.username)
-    cy.get(this.firstNameInput).type(userData.firstName)
-    cy.get(this.lastNameInput).type(userData.lastName)
-    cy.get(this.emailAddressInput).type(userData.email)
-    cy.get(this.confirmEmailAddressInput).type(userData.email)
-    cy.get(this.passwordInput).type(userData.password)
-    cy.get(this.confirmPasswordInput).type(userData.password)
-    cy.get(this.submitButton).click()
+  elements = {
+    userNameInput: () => cy.get("#userNameInput"),
+    firstNameInput: () => cy.get("#firstNameInput"),
+    lastNameInput: () => cy.get("#lastNameInput"),
+    emailAddressInput: () => cy.get("#emailAddressInput"),
+    confirmEmailAddressInput: () => cy.get("#confirmEmailAddressInput"),
+    passwordInput: () => cy.get("#passwordInput"),
+    confirmPasswordInput: () => cy.get("#confirmPasswordInput"),
+    submitButton: () => cy.get("#submitbtn"),
+    signInTextSelector: ".mt-5.txalg",
+    userLoginField: () => cy.get("#userNameInput\\ user_login"),
+    userPasswordField: () => cy.get("#passwordInput\\ user_pass"),
+    wpSubmitButton: () => cy.get("#wp-submit"),
+    logoutButton: () => cy.get(":nth-child(2) > .nav-link"),
   }
 
-  public validateLoginPageUrl() {
+  private loginPageUrl = "/login"
+
+  fillUserInformation(userData: { username: string; firstName: string; lastName: string; email: string; password: string }) {
+    this.elements.userNameInput().type(userData.username)
+    this.elements.firstNameInput().type(userData.firstName)
+    this.elements.lastNameInput().type(userData.lastName)
+    this.elements.emailAddressInput().type(userData.email)
+    this.elements.confirmEmailAddressInput().type(userData.email)
+    this.elements.passwordInput().type(userData.password)
+    this.elements.confirmPasswordInput().type(userData.password)
+    this.elements.submitButton().click()
+  }
+
+  validateLoginPageUrl() {
     cy.url().should("include", this.loginPageUrl)
   }
 
-  public login(username: string, password: string) {
-    cy.validateText(this.signInTextSelector, "Sign In")
-    cy.get(this.userLoginField).clear().type(username)
-    cy.get(this.userPasswordField).clear().type(password)
-    cy.get(this.wpSubmitButton).click()
+  login(username: string, password: string) {
+    cy.validateText(this.elements.signInTextSelector, "Sign In")
+    this.elements.userLoginField().clear().type(username)
+    this.elements.userPasswordField().clear().type(password)
+    this.elements.wpSubmitButton().click()
   }
 
-  public logout() {
-    cy.get(this.logoutButton).click()
+  logout() {
+    this.elements.logoutButton().click()
   }
 }
