@@ -24,20 +24,6 @@ This project focuses on automating the testing of user registration, login, and 
   3. User Logout
      - Verify logout functionality
 
-## 📂 Project Structure
-
-- project-root/
-  |
-  |
-  ├── login.cy.ts # Login and registration test scenarios
-  ├── pages/
-  | └── loginPage.ts
-  |  
-  ├── support/
-  | |
-  | ├── faker.ts # Test data generation
-  | └── commands.ts # Custom Cypress commands
-
 ## 🛠 Technologies Used
 
 - **Testing Framework**: Cypress
