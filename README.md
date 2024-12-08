@@ -53,7 +53,7 @@ project-root/
 
 # Clone repository
 
-git clone <repository-url>
+git clone https://github.com/Subratregmi/PLAssignment
 
 # Install dependencies
 
@@ -70,31 +70,31 @@ npm run run # Headless mode
 
 # 🧪 Test Scenarios Covered
 
-Registration Tests
+## Registration Tests
 
-✅ Prevent registration with existing username
-✅ Validate email format
-✅ Ensure password matching
-✅ Successful user registration
+- ✅ Prevent registration with existing username
+- ✅ Validate email format
+- ✅ Ensure password matching
+- ✅ Successful user registration
 
-Login Tests
+## Login Tests
 
-✅ Successful login
-✅ Handle incorrect username
-✅ Handle incorrect password
-✅ Validate empty credential handling
+- ✅ Successful login
+- ✅ Handle incorrect username
+- ✅ Handle incorrect password
+- ✅ Validate empty credential handling
 
-Logout Tests
+## Logout Tests
 
-✅ Successful logout
-✅ Verify logout message
+- ✅ Successful logout
+- ✅ Verify logout message
 
-📝 Custom Extensions
+## 📝 Custom Extensions
 
 Custom Cypress Command: validateText() for text validation
 Dynamic Test Data: Faker.js for generating realistic test data
 
-⚠️ Notes
+## ⚠️ Notes
 
 Ensure all sensitive information is appropriately masked
 Always use mock/test data for automated tests
