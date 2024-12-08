@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a comprehensive Cypress-based test suite for login and registration functionality, designed to validate various user authentication scenarios using TypeScript and Faker for robust test data generation.
+This project focuses on automating the testing of user registration, login, and logout workflows using **Cypress**.
 
 ## 🚀 Features
 
@@ -10,7 +10,6 @@ This is a comprehensive Cypress-based test suite for login and registration func
 
   - Positive login and registration scenarios
   - Negative test cases for error handling
-  - User authentication workflows
   - Input validation testing
 
 - **Key Test Scenarios**
@@ -27,16 +26,17 @@ This is a comprehensive Cypress-based test suite for login and registration func
 
 ## 📂 Project Structure
 
-project-root/
-│
-├── support/
-│ │
-│ ├── faker.ts # Test data generation
-│ └── commands.ts # Custom Cypress commands
-│
-|── login.cy.ts # Login and registration test scenarios
-├── pages/
-└── loginPage.ts
+- project-root/
+  |
+  |
+  ├── login.cy.ts # Login and registration test scenarios
+  ├── pages/
+  | └── loginPage.ts
+  |  
+  ├── support/
+  | |
+  | ├── faker.ts # Test data generation
+  | └── commands.ts # Custom Cypress commands
 
 ## 🛠 Technologies Used
 
